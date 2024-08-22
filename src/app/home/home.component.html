@@ -1,0 +1,35 @@
+<p>home works!</p>
+<!-- Example with image -->
+<app-avatar 
+    imageUrl="assets/images/user.png"
+    size="40px"
+    shape="circle"
+></app-avatar>  
+
+<!-- Example with initials -->
+<app-avatar 
+    initials="JS"
+    size="60px"
+    shape="square"
+></app-avatar>
+
+<form [formGroup]="form">
+    <app-form-field 
+      label="Username" 
+      [control]="form.get('username')" 
+      placeholder="Enter your username" 
+      required="true">
+      Username is required.
+    </app-form-field>
+  
+    <app-form-field 
+        label="Email" 
+        type="email" 
+        [control]="form.get('email')" 
+        placeholder="Enter your email">
+        Please enter a valid email.
+    </app-form-field>
+  
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+

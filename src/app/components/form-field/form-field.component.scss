@@ -1,0 +1,33 @@
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    input {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+    
+        &:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    
+        &.invalid {
+            border-color: #dc3545;
+        }
+    }
+
+    .error-message {
+        color: #dc3545;
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+    }
+}

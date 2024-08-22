@@ -1,0 +1,12 @@
+<div
+    class="avatar"
+    [ngStyle]="{'width': size, 'height': size, 'border-radius': shape === 'circle' ? '50%' : '0'}"
+>
+    <img
+        *ngIf="!showInitials"
+        [src]="imageUrl"
+        [alt]="initials"
+        class="avatar__image"
+    />
+    <div *ngIf="showInitials" class="avatar__initials">{{ initials }}</div>
+</div>
