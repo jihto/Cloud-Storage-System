@@ -1,5 +1,18 @@
-<p>home works!</p>
-<!-- Example with image -->
+
+<app-button icon="assets/icons/add.svg" color="primary">
+    New
+</app-button>
+<object data="asssets/icons/home.svg" width="300" height="300"> </object>
+
+<div class="recent_files">
+    <ng-container *ngFor="let data of recent; let i = index">
+        <app-box> 
+            <app-button [color]="data.color" [icon]="data.icon" shape="circle" [disabled]="true"></app-button>
+            <span>{{ data.name }}</span>
+        </app-box> 
+    </ng-container>
+</div>
+
 <app-avatar 
     imageUrl="assets/images/user.png"
     size="40px"
@@ -13,23 +26,35 @@
     shape="square"
 ></app-avatar>
 
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
     <app-form-field 
-      label="Username" 
-      [control]="form.get('username')" 
-      placeholder="Enter your username" 
-      required="true">
-      Username is required.
-    </app-form-field>
-  
-    <app-form-field 
-        label="Email" 
-        type="email" 
-        [control]="form.get('email')" 
-        placeholder="Enter your email">
-        Please enter a valid email.
-    </app-form-field>
-  
-    <button type="submit" [disabled]="form.invalid">Submit</button>
-  </form>
+        [formGroup]="form"
+        label="Username" 
+        controlName="username"
+        placeholder="Enter your username" 
+        [required]="true"
+    >
+        Username is required.
+    </app-form-field> 
+    <app-button
+        type="submit"
+        [disabled]="form.invalid" 
+    >
+        S
+    </app-button>
+    <app-folder
+        folderName="Documents"
+        [sharedWith]="['assets/images/avatar1.png', 'assets/images/avatar2.png', 'assets/images/avatar3.png']"
+        lastEdited="8m ago"
+        [moreSharedCount]="6"
+    ></app-folder>
+</form>
 
+
+<button (click)="openModal()">Open Modal</button>
+
+<app-modal [isVisible]="isModalVisible" (closeModal)="closeModal()" title="Hello">
+    <h2>Modal Title</h2>
+    <p>This is the content inside the modal!</p>
+    <button (click)="closeModal()">Close</button>
+</app-modal>

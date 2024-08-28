@@ -1,0 +1,73 @@
+// Default button styles
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    padding: 0.5rem 1rem;
+    gap: 2px;
+
+    img{
+        width: 25px;
+        height: 25px; 
+    } 
+    &.normal {
+      border-radius: 6px; 
+      padding: 8px 16px;
+    }
+    
+    &.circle{
+      border-radius: 50%;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      width: 45px;
+      height: 45px;
+    }
+
+    &.btn_normal_primary {
+      background-color: #52a5ff;
+      color: #fff;
+  
+      &:hover:not(:disabled) {
+        background-color: #0056b3;
+      }
+    }
+  
+    &.btn_normal_secondary {
+      background-color: #6c757d;
+      color: #fff;
+  
+      &:hover:not(:disabled) {
+        background-color: #5a6268;
+      }
+    }
+  
+    &.btn_normal_danger {
+      background-color: #dc3545;
+      color: #fff;
+  
+      &:hover:not(:disabled) {
+        background-color: #c82333;
+      }
+    }
+    
+    &.btn_circle_primary {
+      background-color: #c2daf5; 
+    }
+
+    
+    &.btn_circle_secondary {
+      background-color: #d2f0dc; 
+    }
+
+    &.btn_circle_default {
+      background-color: whitesmoke; 
+    }
+
+    &.btn_circle_danger {
+      background-color: #f1c7cb; 
+    }
+  }
+  

@@ -1,0 +1,31 @@
+<div class="folder-card">
+  <div class="folder-header">
+    <div class="folder-icon">
+      <!-- You can use an icon or an image for the folder -->
+      <img src="assets/images/document.png" alt="folder-icon" />
+    </div>
+    <h3>{{ folderName }}</h3>
+    <button class="options-button">
+      <img src="assets/images/document.png" alt="options"/>
+    </button>
+  </div>
+
+  <div class="folder-content">
+    <div class="shared-with">
+      <span>Shared with</span>
+      <div class="avatars">
+        <ng-container *ngFor="let user of sharedWith; let i = index">
+          <img *ngIf="i < 3" [src]="user" class="avatar" alt="user-avatar" />
+        </ng-container>
+        <div *ngIf="moreSharedCount > 0" class="more-count">+{{ moreSharedCount }}</div>
+      </div>
+    </div>
+    <div class="last-edited">
+      Last edited {{ lastEdited }}
+    </div>
+    <div class="folder-thumbnail">
+      <!-- Image or content representing the folder, e.g., an icon or thumbnail -->
+      <img src="assets/images/document.png" alt="thumbnail-icon" />
+    </div>
+  </div>
+</div>
