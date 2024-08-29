@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-box',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './box.component.html',
   styleUrl: './box.component.scss'
 })
-export class BoxComponent {
-
+export class BoxComponent { 
 }

@@ -1,8 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AvatarComponent } from '../components/avatar/avatar.component';
 import { FormFieldComponent } from '../components/form-field/form-field.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ButtonComponent } from '../components/button/button.component';
+import { FolderComponent } from '../components/folder/folder.component';
+import { BoxComponent } from '../components/box/box.component';
+import { ModalComponent } from '../components/modals/modal/modal.component';
 
 @Component({
   selector: 'app-home',
@@ -10,26 +14,89 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   imports: [
     CommonModule,
     AvatarComponent,
-    FormFieldComponent
+    ButtonComponent,
+    BoxComponent,
+    FormFieldComponent,
+    FolderComponent, 
+    ModalComponent,
+    ReactiveFormsModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  form: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+
+export class HomeComponent { 
+
+  form: FormGroup = new FormGroup({
+    username: new FormControl(''),
+  });
+
+  constructor( private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+      username: new FormControl<string>('', [
+        Validators.minLength(3),
+        Validators.required
+      ]), 
     });
   }
 
   onSubmit(): void {
+    console.log(this.form.value)
     if (this.form.valid) {
       console.log('Form Submitted!', this.form.value);
     }
   }
+ 
+  isModalVisible = false;
+
+  openModal() {
+    this.isModalVisible = true;
+  }
+
+  closeModal() {
+    this.isModalVisible = false;
+  } 
+ 
+  get recent() : RecentProps[]{
+    return [{
+        icon: "assets/icons/account_primary.svg",
+        name: "My Drive",
+        color: "primary"
+      },{
+        icon: "assets/icons/group_secondary.svg",
+        name: "Shared Files",
+        color: "secondary"
+      },{
+        icon: "assets/icons/clock_default.svg",
+        name: "Recent Files",
+        color: "default"
+      },{
+        icon: "assets/icons/star_danger.svg",
+        name: "Starred Files",
+        color: "danger"
+      },{
+        icon: "assets/icons/star_danger.svg",
+        name: "Strash Files",
+        color: "danger"
+      },
+    ];
+  } 
+
+  getClass(i: number): string {
+    if (i === 0) return 'recent1';
+    if (i === 1) return 'recent2';
+    if (i === 2) return 'recent3';
+    if (i === 3) return 'recent4';
+    return 'class-recent';
+  }
+}
+
+
+export interface RecentProps{
+  name: string;
+  icon: string;
+  color: "primary" | "secondary" | "danger" | "default";
 }

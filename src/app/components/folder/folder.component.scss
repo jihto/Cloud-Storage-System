@@ -1,0 +1,99 @@
+.folder-card {
+  background-color: #f4f5ff;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  position: relative;
+
+  .folder-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .folder-icon {
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    h3 {
+      flex-grow: 1;
+      margin-left: 12px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .options-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  .folder-content {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .shared-with {
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 0.9rem;
+        color: #777;
+        margin-right: 8px;
+      }
+
+      .avatars {
+        display: flex;
+        align-items: center;
+
+        .avatar {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          border: 2px solid #fff;
+          margin-left: -8px;
+        }
+
+        .more-count {
+          font-size: 0.8rem;
+          color: #555;
+          background-color: #e0e0e0;
+          border-radius: 50%;
+          padding: 0 6px;
+          margin-left: -6px;
+        }
+      }
+    }
+
+    .last-edited {
+      font-size: 0.8rem;
+      color: #999;
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+    }
+
+    .folder-thumbnail {
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+}

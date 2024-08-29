@@ -1,0 +1,8 @@
+<button
+  [attr.type]="type"
+  [ngClass]="[shape, shapeClasses]"
+  [disabled]="disabled" 
+> 
+  <img *ngIf="icon" [src]="icon" />
+  <ng-content></ng-content>
+</button>
