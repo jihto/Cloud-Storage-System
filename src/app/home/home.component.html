@@ -1,30 +1,69 @@
+<div class="home_page"> 
+    <div class="home_col">
+        <app-button icon="assets/icons/add.svg" color="primary" class="btn_new">
+            New
+        </app-button> 
+        <hr/>
+        <div class="type_folders">
+            <ng-container *ngFor="let data of recent; let i = index">
+                <app-box [isMin]="true"> 
+                    <app-button [color]="data.color" [icon]="data.icon" shape="circle" [disabled]="true"></app-button>
+                    <span>{{ data.name }}</span>
+                </app-box> 
+            </ng-container>
+        </div>
 
-<app-button icon="assets/icons/add.svg" color="primary">
-    New
-</app-button>
-<object data="asssets/icons/home.svg" width="300" height="300"> </object>
+        <app-box class="storage_files">
+            <div class="storage_files_header">
+                <img src="assets/icons/storage.svg"/>
+                <p>Storage</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 50%;"></div>
+            </div> 
+            <p class="text-process">50GB of 100GB</p>
+        </app-box>
+    </div>
+    <div class="home_col_2">  
+        <div class="sub_header">
+            <h2>Folders</h2>  
+            <app-button color="default">See all <img src="assets/icons/arrow_right.svg" /> </app-button>
+        </div>
+        <app-folder
+            folderName="Documents"
+            [sharedWith]="['assets/images/avatar1.png', 'assets/images/avatar2.png', 'assets/images/avatar3.png']"
+            lastEdited="8m ago"
+            [moreSharedCount]="6"
+        ></app-folder>
 
-<div class="recent_files">
-    <ng-container *ngFor="let data of recent; let i = index">
-        <app-box> 
-            <app-button [color]="data.color" [icon]="data.icon" shape="circle" [disabled]="true"></app-button>
-            <span>{{ data.name }}</span>
-        </app-box> 
-    </ng-container>
-</div>
-
-<app-avatar 
-    imageUrl="assets/images/user.png"
-    size="40px"
-    shape="circle"
-></app-avatar>  
-
-<!-- Example with initials -->
-<app-avatar 
-    initials="JS"
-    size="60px"
-    shape="square"
-></app-avatar>
+        <div class="sub_header">
+            <h2>Recently Opened Files</h2>  
+            <app-button color="default">See all <img src="assets/icons/arrow_right.svg" /> </app-button>
+        </div>
+        <div class="recent_folders">
+            <ng-container *ngFor="let data of recentFolders let i = index">
+                <app-box>
+                    <div class="folder">
+                        <app-button [color]="data.color" [icon]="data.icon" shape="circle" [disabled]="true"></app-button>
+                        <div class="folder__title">
+                            <p class="main_title">{{data.title}}</p>
+                            <p class="sub_title">{{data.subTitle}}</p>
+                        </div>
+                        <span>{{data.data}}</span>
+                        <span>{{data.date}}</span>
+                        <div class="folder__shared">
+                            <ng-container *ngFor="let user of data.users let i = index">
+                                <app-avatar class="shared_user" [initials]="user"></app-avatar>
+                            </ng-container>
+                            <app-avatar class="shared_user" initials=`+2`></app-avatar>
+                        </div>
+                        <span>Icon</span> 
+                    </div>
+                </app-box>
+            </ng-container>
+        </div>
+    </div>
+</div> 
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <app-form-field 
@@ -41,15 +80,8 @@
         [disabled]="form.invalid" 
     >
         S
-    </app-button>
-    <app-folder
-        folderName="Documents"
-        [sharedWith]="['assets/images/avatar1.png', 'assets/images/avatar2.png', 'assets/images/avatar3.png']"
-        lastEdited="8m ago"
-        [moreSharedCount]="6"
-    ></app-folder>
+    </app-button> 
 </form>
-
 
 <button (click)="openModal()">Open Modal</button>
 

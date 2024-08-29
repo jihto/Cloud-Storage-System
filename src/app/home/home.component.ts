@@ -7,6 +7,8 @@ import { ButtonComponent } from '../components/button/button.component';
 import { FolderComponent } from '../components/folder/folder.component';
 import { BoxComponent } from '../components/box/box.component';
 import { ModalComponent } from '../components/modals/modal/modal.component';
+import { dataRecentsFolders } from '../../assets/data';
+import { AboutUsComponent } from "../modules/about-us/about-us/about-us.component";
 
 @Component({
   selector: 'app-home',
@@ -17,17 +19,17 @@ import { ModalComponent } from '../components/modals/modal/modal.component';
     ButtonComponent,
     BoxComponent,
     FormFieldComponent,
-    FolderComponent, 
+    FolderComponent,
     ModalComponent,
     ReactiveFormsModule,
-  ],
+    AboutUsComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 
 
-export class HomeComponent { 
-
+export class HomeComponent {  
   form: FormGroup = new FormGroup({
     username: new FormControl(''),
   });
@@ -59,7 +61,14 @@ export class HomeComponent {
   closeModal() {
     this.isModalVisible = false;
   } 
- 
+  getClass(i: number): string {
+    if (i === 0) return 'recent1';
+    if (i === 1) return 'recent2';
+    if (i === 2) return 'recent3';
+    if (i === 3) return 'recent4';
+    return 'class-recent';
+  }
+
   get recent() : RecentProps[]{
     return [{
         icon: "assets/icons/account_primary.svg",
@@ -85,12 +94,10 @@ export class HomeComponent {
     ];
   } 
 
-  getClass(i: number): string {
-    if (i === 0) return 'recent1';
-    if (i === 1) return 'recent2';
-    if (i === 2) return 'recent3';
-    if (i === 3) return 'recent4';
-    return 'class-recent';
+
+
+  get recentFolders(): any[]{
+    return dataRecentsFolders;
   }
 }
 

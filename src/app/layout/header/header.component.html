@@ -1,8 +1,8 @@
 
 <div class="header"> 
-    <app-button type="button" shape="circle" color="default">
-        <img src="assets/images/logo.png" class="logo" alt="logo" />
-    </app-button> 
+    <div class="header_logo">
+        <app-avatar imageUrl="assets/images/logo.png"></app-avatar> 
+    </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="header__search">
         <app-form-field 
             [formGroup]="form" 
@@ -17,5 +17,6 @@
         <app-button shape="circle" color="default">
             <img src="assets/icons/notifications.svg" class="logo" alt="logo" />
         </app-button>
-        <app-avatar imageUrl="assets/images/user.png" > </app-avatar>
+        <app-avatar *ngIf="isLogin" imageUrl="assets/images/user.png" > </app-avatar>
+        <app-button color="default">Login</app-button>
 </div>

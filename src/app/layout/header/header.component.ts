@@ -1,13 +1,15 @@
-import { Component } from '@angular/core'; 
+import { Component, Input } from '@angular/core'; 
 import { AvatarComponent } from '../../components/avatar/avatar.component';
 import { FormFieldComponent } from "../../components/form-field/form-field.component";
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../components/button/button.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
+    CommonModule,
     AvatarComponent, 
     ButtonComponent,
     FormFieldComponent, 
@@ -17,6 +19,8 @@ import { ButtonComponent } from '../../components/button/button.component';
 })
 
 export class HeaderComponent {
+  @Input() isLogin: boolean = false;
+  
   form: FormGroup = new FormGroup({
     search: new FormControl(''),
   });

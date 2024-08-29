@@ -9,4 +9,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './box.component.scss'
 })
 export class BoxComponent { 
+  @Input() isMin: boolean = false; 
+  
+  
+  get isMinWidth() :string {
+    return this.isMin ? 'min-width: 150px;' : 'min-width: 100%';
+  }
 }
