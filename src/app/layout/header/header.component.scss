@@ -4,24 +4,59 @@
     align-items: center;
     justify-content: space-between; 
     align-items: center;
-    padding: 10px;
+    padding-top: 10px;
     border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+    max-width: 1200px;   
+    margin: 0 auto; 
  
-    .header__search{
-        width: 80%; 
+    .header__search{ 
         background-color: #ffffff;
         border-radius: 12px; 
         position: relative;
     }
 
+    .login__methods{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    
+
     .header__account{
         display: flex;
         gap: 8px;
         align-items: center;
-        justify-content: center;
+        justify-content: end;
         
-        &.notification{
-            background-color: red;
-        }
+        .login__form{
+            display: grid;
+            gap: 20px;
+            .line__or{
+                    position: relative;
+                    width: 100%;
+                    text-align: -webkit-center;
+                    p{ 
+                        margin-top: -20px;
+                        padding: 0 20px;
+                        color: gray;
+                        width: fit-content;
+                        background-color: whitesmoke;  
+                    }
+                }
+            .sign_up_dir{ 
+                text-align: end;
+                button{
+                    outline: none;
+                    border: none;
+                    font-weight: bold;
+                    text-decoration: underline;
+                    font-size: medium;
+                    cursor: pointer;
+                }
+            }
+        } 
     }
 }

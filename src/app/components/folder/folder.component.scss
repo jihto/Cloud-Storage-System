@@ -1,98 +1,103 @@
-.folder-card {
-  background-color: #f4f5ff;
-  border-radius: 20px;
-  padding: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.folder {
+  background-color: #f7f0fc; // Light background color
+  border-radius: 15px; 
   width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(112, 222, 255, 0.2); 
   position: relative;
 
-  .folder-header {
+  .folder__header {
+    padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
 
-    .folder-icon {
-      background-color: #ffffff;
-      padding: 10px;
-      border-radius: 12px;
+    .folder__icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+
+    .folder__info {
+      margin-left: 15px;
+      flex-grow: 1;
+
+      h4 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+      }
+
+      p { 
+        font-size: 14px;
+        color: #666;
+      }
+    } 
+  }
+
+  .folder__content {
+    border-radius: 15px; 
+    padding: 10px 20px;
+    position: relative;
+    background-color: white;
+     
+    .folder__add {
+      position: absolute; 
+      right: 25px;
+      border-radius: 50%;
+      top: -25px;
+      background-color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      img {
-        width: 24px;
-        height: 24px;
-      }
-    }
-
-    h3 {
-      flex-grow: 1;
-      margin-left: 12px;
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    .options-button {
-      background: none;
-      border: none;
       cursor: pointer;
-      img {
-        width: 18px;
-        height: 18px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      span {
+        font-size: 25px;
+        color: #6a0dad;
       }
     }
-  }
 
-  .folder-content {
-    margin-top: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .shared-with {
-      display: flex;
-      align-items: center;
-      span {
-        font-size: 0.9rem;
-        color: #777;
-        margin-right: 8px;
+    .folder__details {
+      h5 {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #333;
       }
 
-      .avatars {
+      .folder__stats {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+
+        &_details{
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+
+          img{ 
+            width: 25px;
+            padding: 5px;
+            border-radius: 50%;
+          } 
+          p{
+            color: gray;
+          }
+        }
+      }
+
+      .folder__access {
         display: flex;
         align-items: center;
-
-        .avatar {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          border: 2px solid #fff;
-          margin-left: -8px;
-        }
-
-        .more-count {
-          font-size: 0.8rem;
-          color: #555;
-          background-color: #e0e0e0;
-          border-radius: 50%;
-          padding: 0 6px;
-          margin-left: -6px;
-        }
-      }
-    }
-
-    .last-edited {
-      font-size: 0.8rem;
-      color: #999;
-      position: absolute;
-      bottom: 16px;
-      left: 16px;
-    }
-
-    .folder-thumbnail {
-      img {
-        width: 48px;
-        height: 48px;
+        padding: 5px 0;
+        gap: 10px;
+        font-size: 14px;
+        color: #999;
       }
     }
   }

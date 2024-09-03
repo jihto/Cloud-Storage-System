@@ -1,11 +1,14 @@
+@import '../../../styles//variables';
+
 .form-field {
     display: flex;
     flex-direction: column; 
     position: relative; 
     label {
         font-weight: bold;
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
+        color: gray;
+        margin-bottom: 0.2rem;
+        font-size: medium;
     }
 
     input {
@@ -15,7 +18,7 @@
         outline: none;
         border-radius: 10px;
         font-size: 1rem; 
-    
+        box-shadow: $box-shadow-md;
         &:focus {
             border-color: #007bff;
             outline: none;

@@ -1,43 +1,55 @@
+@import '../../styles//variables';
 .home_page{
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding: 20px 10%;
-
+    grid-template-columns: 1fr 2fr; 
+    width: 100%;
+    max-width: 1200px;   
+    margin: 0 auto;  
+    @media (max-width: 768px) {
+        max-width: 90%;  
+    }
     .home_col{ 
         width: fit-content;
-        padding: 0 30px; 
+        display: flex; 
+        gap: 10px;
+        padding-right: 20px;
+        flex-direction: column; 
 
-        .btn_new{
-            display: flex;
-            margin: 15px 0 20px 0;
+        .line{
+            width: 100%;
+            height: 1px;
+            background-color: rgb(201, 201, 201);
+            border-radius: 15px;
         }
 
         .type_folders{ 
             display: flex;
             flex-wrap: wrap;
+            column-gap: 10px;
+
             span{
                 color: rgb(49, 48, 48);
-                font-weight: 500;
-                margin-top: 15px; 
+                font-weight: 500; 
             } 
         }
         
         .storage_files{
-            position: relative;
-            .storage_files_header{
+            position: relative;   
+
+            &_header{
                 display: flex;
                 justify-content: start;
                 align-items: center;
                 gap: 10px;
             }
 
-            .progress-bar {
+            .progress__bar {
                 margin-top: 10px;
                 position: relative;
                 width: 100%;
                 height: 10px;
-                background-color: #e0e0e0; // Màu nền của thanh tiến trình
-                border-radius: 12.5px; // Bo tròn góc của thanh tiến trình
+                background-color: #e0e0e0; 
+                border-radius: 12.5px;  
                 overflow: hidden;
 
                 .progress {
@@ -45,13 +57,13 @@
                     top: 0;
                     left: 0;
                     height: 100%;
-                    background-color: #4caf50; // Màu của thanh tiến trình
-                    width: 0; // Chiều rộng ban đầu là 0%
-                    border-radius: 12.5px 0 0 12.5px; // Bo tròn góc trái của thanh tiến trình
-                    transition: width 0.4s ease-in-out; // Hiệu ứng chuyển động khi thanh tiến trình thay đổi độ rộng
+                    background: linear-gradient(to top, #ff7e5f, #feb47b);  
+                    width: 0; 
+                    border-radius: 12.5px 0 0 12.5px;  
+                    transition: width 0.4s ease-in-out;  
                 }
             }
-            .text-process{
+            .text__process{
                 top: 20px;
                 right: 25px;
                 font-size: small;
@@ -59,6 +71,25 @@
                 color: gray;
             }
             
+        }
+        .upgrade_box{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            padding: 10% 10px;
+            
+            .title{
+                display: grid;
+                color: white;
+                justify-content: space-between;
+            }
+            p{
+                font-weight: bold;
+                font-size: 25px;
+            }
+
+            img{
+                width: 100%;
+            }
         }
     }
 
@@ -71,19 +102,22 @@
             h2{
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 margin: 15px 0 20px 0;
+                font-weight: 700;
+                font-size: larger;
             }
         }
-
         .recent_folders{
             display: grid;
 
-            .folder{
+            .recent_folder{
                 display: grid;
-                grid-template-columns: 1fr 2fr 1fr 2fr 2fr 1fr;
-                padding: 10px 0;
+                align-items: center;
+                grid-template-columns: 1fr 2fr 1fr 2fr 1fr 1fr;
+                padding: 3px 0;
+
                 &__title{
                     .main_title{
-                        font-weight: 600;
+                        font-weight: 500;
                     }
                     .sub_title{
                         font-size: small;
@@ -99,6 +133,24 @@
 
                     .shared_user{
                         margin-left: -16px;
+                    }
+                }
+
+                &__see_more{
+                    display: flex;
+                    justify-content: center;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    align-items: center;
+                    transition: all 0.3s ease, visibility 0.3s ease;
+
+                    img{
+                        width: 28px;
+                    }
+                    
+                    &:hover:not(:disabled) {
+                        margin-right: -20px;
                     }
                 }
             }

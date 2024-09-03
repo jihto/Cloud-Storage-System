@@ -51,16 +51,7 @@ export class HomeComponent {
       console.log('Form Submitted!', this.form.value);
     }
   }
- 
-  isModalVisible = false;
-
-  openModal() {
-    this.isModalVisible = true;
-  }
-
-  closeModal() {
-    this.isModalVisible = false;
-  } 
+  
   getClass(i: number): string {
     if (i === 0) return 'recent1';
     if (i === 1) return 'recent2';
