@@ -8,5 +8,12 @@ import { Component, Input } from '@angular/core';
   templateUrl: './box.component.html',
   styleUrl: './box.component.scss'
 })
-export class BoxComponent { 
+export class BoxComponent {  
+  @Input() styles: string ="";
+  
+  get getStyles() :string {
+    let styles: string = "" 
+    styles += this.styles || '';
+    return styles;
+  } 
 }

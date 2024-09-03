@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { AvatarComponent } from "../avatar/avatar.component";
 
 @Component({
   selector: 'app-folder',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AvatarComponent],
   templateUrl: './folder.component.html',
   styleUrl: './folder.component.scss'
 })

@@ -1,4 +1,5 @@
-// Default button styles
+@import '../../../styles/variables';
+
 button {
     display: flex;
     justify-content: center;
@@ -6,17 +7,28 @@ button {
     border: none;
     font-size: 16px;
     cursor: pointer;
+    margin: 10px 0;
     transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: $box-shadow-md;
     padding: 0.5rem 1rem;
     gap: 2px;
 
-    img{
+    
+
+    &.fullwidth{
+      width: 100%;
+      padding: 11px 0;
+      border-radius: 40px;
+    }
+
+    &.normal {
+      border-radius: 10px; 
+      padding: 8px 16px;
+      
+      img{
         width: 25px;
         height: 25px; 
-    } 
-    &.normal {
-      border-radius: 6px; 
-      padding: 8px 16px;
+      } 
     }
     
     &.circle{
@@ -27,7 +39,7 @@ button {
     }
 
     &.btn_normal_primary {
-      background-color: #52a5ff;
+      background:$primary-color ;
       color: #fff;
   
       &:hover:not(:disabled) {
@@ -36,8 +48,8 @@ button {
     }
   
     &.btn_normal_secondary {
-      background-color: #6c757d;
-      color: #fff;
+      background-color: $secondary-color;
+      color: whitesmoke;
   
       &:hover:not(:disabled) {
         background-color: #5a6268;
@@ -45,7 +57,7 @@ button {
     }
   
     &.btn_normal_danger {
-      background-color: #dc3545;
+      background-color: $danger-color;
       color: #fff;
   
       &:hover:not(:disabled) {
@@ -53,17 +65,27 @@ button {
       }
     }
     
+    &.btn_normal_default{
+      background-color: $background-color;
+      color: black;
+      font-weight: 500;
+      opacity: 1;
+      &:hover:not(:disabled) {
+        opacity: 0.5;
+      }
+    }
+
     &.btn_circle_primary {
-      background-color: #c2daf5; 
+      background-color: $primary-color-sub; 
     }
 
     
     &.btn_circle_secondary {
-      background-color: #d2f0dc; 
+      background-color: $secondary-color-sub; 
     }
 
     &.btn_circle_default {
-      background-color: whitesmoke; 
+      background-color: white; 
     }
 
     &.btn_circle_danger {

@@ -1,8 +1,8 @@
 
 <div class="header"> 
-    <app-button type="button" shape="circle" color="default">
-        <img src="assets/images/logo.png" class="logo" alt="logo" />
-    </app-button> 
+    <div class="header_logo">
+        <app-avatar imageUrl="assets/images/logo.png"></app-avatar> 
+    </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="header__search">
         <app-form-field 
             [formGroup]="form" 
@@ -17,5 +17,62 @@
         <app-button shape="circle" color="default">
             <img src="assets/icons/notifications.svg" class="logo" alt="logo" />
         </app-button>
-        <app-avatar imageUrl="assets/images/user.png" > </app-avatar>
+        <app-avatar *ngIf="isLogin" imageUrl="assets/images/user.png" > </app-avatar>
+        <app-button (click)="openModal()" >Login</app-button>
+
+        <!-- login modal -->
+        <app-modal [isVisible]="isModalVisible" (closeModal)="closeModal()" title="Sign In">
+            <form [formGroup]="form" (ngSubmit)="closeModal()" class="login__form">
+                <div class="line__or">
+                    <hr>
+                    <p>Wellcome back</p>
+                </div>
+                <!-- Login form  -->
+                <app-form-field 
+                    [formGroup]="form"
+                    label="Username" 
+                    controlName="username"
+                    placeholder="Enter your username" 
+                    [required]="true"
+                >
+                    Username is required.
+                </app-form-field> 
+                <app-form-field 
+                    [formGroup]="form"
+                    label="Password" 
+                    controlName="password"
+                    placeholder="Enter your password" 
+                    [required]="true"
+                >
+                    Password is required.
+                </app-form-field>
+                <div class="sign_up_dir">
+                    <button>Sign Up</button>
+                    <app-button 
+                        shape="fullwidth"
+                        type="submit"
+                        [disabled]="form.invalid" 
+                    >
+                        Submit
+                    </app-button> 
+                </div> 
+                <div class="line__or">
+                    <hr>
+                    <p>or</p>
+                </div>
+                
+                <!-- Another login methods -->
+                <div class="login__methods">
+                    <app-button shape="circle">
+                        <img src="assets/icons/protect.svg" class="logo" alt="logo" />
+                    </app-button>
+                    <app-button shape="circle">
+                        <img src="assets/icons/mask.svg" class="logo" alt="logo" />
+                    </app-button>
+                    <app-button shape="circle">
+                        <img src="assets/icons/anchor.svg" class="logo" alt="logo" />
+                    </app-button>
+                </div>
+            </form>  
+        </app-modal>
 </div>

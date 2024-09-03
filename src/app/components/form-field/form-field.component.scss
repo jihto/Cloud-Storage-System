@@ -1,11 +1,14 @@
+@import '../../../styles//variables';
+
 .form-field {
     display: flex;
     flex-direction: column; 
     position: relative; 
     label {
         font-weight: bold;
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
+        color: gray;
+        margin-bottom: 0.2rem;
+        font-size: medium;
     }
 
     input {
@@ -14,9 +17,8 @@
         border: 1px solid whitesmoke;
         outline: none;
         border-radius: 10px;
-        font-size: 1rem;
-        background-color: whitesmoke;
-    
+        font-size: 1rem; 
+        box-shadow: $box-shadow-md;
         &:focus {
             border-color: #007bff;
             outline: none;
@@ -36,6 +38,7 @@
         top: 8px;
         left: 2px;
         outline: none;
+        background-color: white;
         border: none;
         border-radius: 50%;
         img{ 

@@ -1,0 +1,22 @@
+// src/styles/_mixins.scss
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin transition($property, $duration: 0.3s, $timing: ease-in-out) {
+    transition: $property $duration $timing;
+}
+
+@mixin box-shadow($color: rgba(0, 0, 0, 0.2)) {
+    box-shadow: 0 2px 5px $color;
+}
+
+@mixin responsive-font-size($size) {
+font-size: $size;
+    @media (min-width: 600px) {
+        font-size: ($size * 1.2);
+    }
+}

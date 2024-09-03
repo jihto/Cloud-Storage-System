@@ -1,60 +1,80 @@
+<div class="home_page"> 
+    <div class="home_col">
+        <app-button icon="assets/icons/add.svg" class="btn_new">
+            Upload
+        </app-button> 
+        <div class="line"></div>
+        <div class="type_folders">
+            <ng-container *ngFor="let data of recent; let i = index">
+                <app-box > 
+                    <app-button [color]="data.color" [icon]="data.icon" shape="circle" [disabled]="true"></app-button>
+                    <span>{{ data.name }}</span>
+                </app-box> 
+            </ng-container>
+        </div>
 
-<app-button icon="assets/icons/add.svg" color="primary">
-    New
-</app-button>
-<object data="asssets/icons/home.svg" width="300" height="300"> </object>
+        <app-box class="storage_files">
+            <div class="storage_files_header">
+                <img src="assets/icons/storage.svg"/>
+                <p>Storage</p>
+            </div>
+            <div class="progress__bar">
+                <div class="progress" style="width: 50%;"></div>
+            </div> 
+            <p class="text__process">50GB of 100GB</p>
+        </app-box>
 
-<div class="recent_files">
-    <ng-container *ngFor="let data of recent; let i = index">
-        <app-box> 
-            <app-button [color]="data.color" [icon]="data.icon" shape="circle" [disabled]="true"></app-button>
-            <span>{{ data.name }}</span>
-        </app-box> 
-    </ng-container>
-</div>
+        <app-box styles="background: linear-gradient(to right, #ff7e5f, #feb47b);">
+            <div  class="upgrade_box">
+                <div class="title">
+                    <p>Upgrade your account to PRO BUSSINESS</p>
+                    <app-button>
+                        Upgrade now
+                    </app-button>
+                </div>
+                <img src="assets/images/rocket.png" alt="rocket" />
+            </div>
+        </app-box>
+    </div>
+    <div class="home_col_2">  
+        <div class="sub_header">
+            <h2>Folders</h2>  
+            <app-button color="default">See all <img src="assets/icons/arrow_right.svg" /> </app-button>
+        </div> 
+        <app-folder
+            folderName="Documents"
+            [sharedWith]="['assets/images/avatar1.png', 'assets/images/avatar2.png', 'assets/images/avatar3.png']"
+            lastEdited="8m ago"
+            [moreSharedCount]="6"
+        ></app-folder>  
 
-<app-avatar 
-    imageUrl="assets/images/user.png"
-    size="40px"
-    shape="circle"
-></app-avatar>  
-
-<!-- Example with initials -->
-<app-avatar 
-    initials="JS"
-    size="60px"
-    shape="square"
-></app-avatar>
-
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <app-form-field 
-        [formGroup]="form"
-        label="Username" 
-        controlName="username"
-        placeholder="Enter your username" 
-        [required]="true"
-    >
-        Username is required.
-    </app-form-field> 
-    <app-button
-        type="submit"
-        [disabled]="form.invalid" 
-    >
-        S
-    </app-button>
-    <app-folder
-        folderName="Documents"
-        [sharedWith]="['assets/images/avatar1.png', 'assets/images/avatar2.png', 'assets/images/avatar3.png']"
-        lastEdited="8m ago"
-        [moreSharedCount]="6"
-    ></app-folder>
-</form>
-
-
-<button (click)="openModal()">Open Modal</button>
-
-<app-modal [isVisible]="isModalVisible" (closeModal)="closeModal()" title="Hello">
-    <h2>Modal Title</h2>
-    <p>This is the content inside the modal!</p>
-    <button (click)="closeModal()">Close</button>
-</app-modal>
+        <div class="sub_header">
+            <h2>Recently Opened Files</h2>  
+            <app-button color="default">See all <img src="assets/icons/arrow_right.svg" /> </app-button>
+        </div>
+        <div class="recent_folders">
+            <ng-container *ngFor="let data of recentFolders let i = index">
+                <app-box>
+                    <div class="recent_folder">
+                        <app-button [color]="data.color" [icon]="data.icon" shape="circle" [disabled]="true"></app-button>
+                        <div class="recent_folder__title">
+                            <p class="main_title">{{data.title}}</p>
+                            <p class="sub_title">{{data.subTitle}}</p>
+                        </div>
+                        <span>{{data.data}}</span>
+                        <span>{{data.date}}</span>
+                        <div class="recent_folder__shared">
+                            <ng-container *ngFor="let user of data.users let i = index">
+                                <app-avatar class="shared_user" [initials]="user"></app-avatar>
+                            </ng-container>
+                            <app-avatar class="shared_user" initials="+2"></app-avatar>
+                        </div>
+                        <button class="recent_folder__see_more">
+                            <img src="assets/icons/arrow_right.svg" />
+                        </button> 
+                    </div>
+                </app-box>
+            </ng-container>
+        </div>
+    </div>
+</div> 
