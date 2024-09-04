@@ -6,6 +6,7 @@ import { ButtonComponent } from '../../components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from '../../components/modals/modal/modal.component';
 import { BoxComponent } from "../../components/box/box.component";
+import { LoginModalComponent } from '../../components/modals/login-modal/login-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -14,8 +15,8 @@ import { BoxComponent } from "../../components/box/box.component";
     CommonModule,
     AvatarComponent,
     ButtonComponent,
-    FormFieldComponent,
-    ModalComponent,
+    FormFieldComponent, 
+    LoginModalComponent,
     FormFieldComponent,
     BoxComponent,
     ReactiveFormsModule,
@@ -26,14 +27,12 @@ import { BoxComponent } from "../../components/box/box.component";
 })
 
 export class HeaderComponent {
-  @Input() isLogin: boolean = false;
-  
   form: FormGroup = new FormGroup({
     search: new FormControl(''),
   });
 
   constructor( private fb: FormBuilder) {}
-
+  isLogin = false;
   isModalVisible = false;
 
   openModal() {
@@ -46,12 +45,6 @@ export class HeaderComponent {
   ngOnInit(): void {
     this.form = this.fb.group({
       search: new FormControl<string>('', [
-        Validators.minLength(3), 
-      ]), 
-      username: new FormControl<string>('', [
-        Validators.minLength(3), 
-      ]), 
-      password: new FormControl<string>('', [
         Validators.minLength(3), 
       ]), 
     });

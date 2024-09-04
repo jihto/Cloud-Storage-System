@@ -1,0 +1,34 @@
+<app-modal 
+    [isVisible]="isModalVisible" 
+    title="Upload an file or folder" (closeModal)="onClose()"
+>
+    <p class="sub__title">For best results, video uploads should be at least 1080p (1920 x 1080) in MP4 format</p>
+
+    <div class="drop__file">
+        <div class="drop__file__heading">
+            <img src="assets/icons/cloud_upload.svg" alt="uploads file"/>
+            <h3>Drag and drop video files to upload</h3>
+            <p>Your video will be private until you publish your profile</p>
+            <app-button shape="fullwidth" class="btn__upload">
+                <label htmlFor="upload">
+                    <img src="assets/icons/file_upload.svg"/>
+                    <span>Select file to upload</span>
+                </label>
+                <input id="upload" type="file" />
+            </app-button>
+        </div>
+    </div>
+    <select class="guide__uploads">
+        <option value="option1">Step-by-step guide</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </select>
+    <div class="btn__action">
+        <app-button color="default">
+            Cancel
+        </app-button>
+        <app-button>
+            Uploads
+        </app-button>
+    </div>
+</app-modal>

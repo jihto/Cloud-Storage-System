@@ -27,9 +27,24 @@
             flex-wrap: wrap;
             column-gap: 10px;
 
+            &__box{
+                width: calc(33.33% - 10px); 
+            }
+            @media (max-width: 768px) { /* Adjust the breakpoint as needed */
+                &__box {
+                    width: calc(50% - 10px);
+                }
+            }
+            
+              @media (max-width: 480px) { /* Adjust the breakpoint as needed */
+                &__box {
+                    width: 100%;
+                }
+            }
             span{
                 color: rgb(49, 48, 48);
                 font-weight: 500; 
+                font-size: small;
             } 
         }
         

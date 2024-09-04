@@ -1,12 +1,12 @@
 <div class="home_page"> 
     <div class="home_col">
-        <app-button icon="assets/icons/add.svg" class="btn_new">
+        <app-button icon="assets/icons/add.svg" class="btn_new" (click) ="openModal()">
             Upload
         </app-button> 
         <div class="line"></div>
         <div class="type_folders">
             <ng-container *ngFor="let data of recent; let i = index">
-                <app-box > 
+                <app-box class="type_folders__box"> 
                     <app-button [color]="data.color" [icon]="data.icon" shape="circle" [disabled]="true"></app-button>
                     <span>{{ data.name }}</span>
                 </app-box> 
@@ -78,3 +78,11 @@
         </div>
     </div>
 </div> 
+
+
+<app-upload-modal
+    [isModalVisible]="isModalVisible"
+    (closeModal)="closeModal()"
+>
+
+</app-upload-modal>

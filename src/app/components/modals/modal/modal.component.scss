@@ -25,6 +25,18 @@
     animation: fadeIn 0.3s ease;  // Add animation to the backdrop
   }
 
+  .modal-small{
+    max-width: 500px; 
+  }
+
+  .modal-medium{ 
+    max-width: 650px; 
+  }
+
+  .modal-large{
+    max-width: 800px; 
+  }
+
   .modal-content {
     position: relative;
     background-color: whitesmoke;
@@ -33,14 +45,13 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 10;
     min-width: 300px;
-    max-width: 500px;
     width: 100%;
     animation: scaleIn 0.3s ease;  // Add animation to the modal content
     
     .modal-title{
       position: relative;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       p{
         font-size: x-large;
         font-weight: 600;

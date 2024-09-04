@@ -9,6 +9,7 @@ import { BoxComponent } from '../components/box/box.component';
 import { ModalComponent } from '../components/modals/modal/modal.component';
 import { dataRecentsFolders } from '../../assets/data';
 import { AboutUsComponent } from "../modules/about-us/about-us/about-us.component";
+import { UploadModalComponent } from '../components/modals/upload-modal/upload-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ import { AboutUsComponent } from "../modules/about-us/about-us/about-us.componen
     BoxComponent,
     FormFieldComponent,
     FolderComponent,
-    ModalComponent,
+    UploadModalComponent,
     ReactiveFormsModule,
     AboutUsComponent
 ],
@@ -33,6 +34,7 @@ export class HomeComponent {
   form: FormGroup = new FormGroup({
     username: new FormControl(''),
   });
+  isModalVisible: boolean = false;
 
   constructor( private fb: FormBuilder) {}
 
@@ -43,6 +45,13 @@ export class HomeComponent {
         Validators.required
       ]), 
     });
+  }
+
+  closeModal(){
+    this.isModalVisible = false;
+  }
+  openModal() {
+    this.isModalVisible = true;
   }
 
   onSubmit(): void {

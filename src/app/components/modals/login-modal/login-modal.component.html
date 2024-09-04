@@ -1,1 +1,52 @@
-<p>login-modal works!</p>
+<app-modal [isVisible]="isModalVisible" title="Sign In" (closeModal)="onClose()" [size]="size">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login__form">
+        <div class="line__or">
+            <hr>
+            <p>Wellcome back</p>
+        </div>
+        <!-- Login form  -->
+        <app-form-field 
+            [formGroup]="form"
+            label="Username" 
+            controlName="username"
+            placeholder="Enter your username"  
+        >
+            Username is required.
+        </app-form-field> 
+        <app-form-field 
+            [formGroup]="form"
+            label="Password" 
+            controlName="password"
+            placeholder="Enter your password" 
+        >
+            Password is required.
+        </app-form-field>
+        <div class="sign_up_dir">
+            <button>Sign Up</button>
+            <app-button 
+                shape="fullwidth"
+                type="submit"
+                [disabled]="form.invalid" 
+            >
+                Submit
+            </app-button> 
+        </div> 
+        <div class="line__or">
+            <hr>
+            <p>or</p>
+        </div>
+        
+        <!-- Another login methods -->
+        <div class="login__methods">
+            <app-button shape="circle">
+                <img src="assets/icons/protect.svg" class="logo" alt="logo" />
+            </app-button>
+            <app-button shape="circle">
+                <img src="assets/icons/mask.svg" class="logo" alt="logo" />
+            </app-button>
+            <app-button shape="circle">
+                <img src="assets/icons/anchor.svg" class="logo" alt="logo" />
+            </app-button>
+        </div>
+    </form>  
+</app-modal>
